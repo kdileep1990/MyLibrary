@@ -227,7 +227,8 @@ import {
   ScrollView,
   StyleSheet,
   View,
-  StatusBar
+  StatusBar,
+  KeyboardAvoidingView
 } from 'react-native';
 import { Header } from 'react-native-elements';
 import Text from '../components/common/Text/Text';

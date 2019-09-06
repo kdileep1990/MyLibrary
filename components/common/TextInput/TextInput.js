@@ -314,9 +314,12 @@ class TextInput extends React.Component {
                                      marginRight: this.getMarginRight(this.props),
                                      outline: 'none',
                                      textAlignVertical: 'top',
-                                     paddingTop: 10,
-                                     paddingBottom: 10,
-                                     minHeight: 20 + ((this.props.numberOfLines || 1) * 18)
+                                     paddingTop: 0,
+                                     paddingBottom: 0,
+                                     marginTop: 10,
+                                     marginBottom: 10,
+                                     minHeight: ((this.props.numberOfLines || 1) * 18),
+                                     maxHeight: ((this.props.numberOfLines || 1) * 18)
                                  }]} />)
     }
 
