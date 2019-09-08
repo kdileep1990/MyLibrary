@@ -293,6 +293,7 @@ class DisplayScreen extends React.Component {
                   scrollEnabled={true}
                   keyboardShouldPersistTaps={'always'}
                   showsVerticalScrollIndicator={false}
+                  enableOnAndroid={true}
               >
                   <Text style={{flex: 2, justifyContent: 'space-evenly'}}
                         type="H4"
