@@ -287,7 +287,7 @@ class DisplayScreen extends React.Component {
                   }}
                   placement="left"
               />
-              <KeyboardAwareScrollView
+              <ScrollView
                   style={styles.container} contentContainerStyle={styles.contentContainer}
                   resetScrollToCoords={{ x: 0, y: 0 }}
                   scrollEnabled={true}
@@ -295,7 +295,7 @@ class DisplayScreen extends React.Component {
                   showsVerticalScrollIndicator={false}
                   enableOnAndroid={true}
               >
-                  <Text style={{flex: 2, justifyContent: 'space-evenly'}}
+                  <Text style={{justifyContent: 'space-evenly'}}
                         type="H4"
                         textWeight="weight300"
                         textType="default"
@@ -310,7 +310,7 @@ class DisplayScreen extends React.Component {
                       </ToggleImages>
                   </View>
 
-                  <View style={{width: "100%", height: "50%"}} style={styles.multilineTextBox}>
+                  <View style={styles.multilineTextBox}>
                       <TextInput
                           label="Comments (required)"
                           multiline={true}
@@ -329,7 +329,6 @@ class DisplayScreen extends React.Component {
                       </Button>
                   </View>
 
-                  <View style={styles.containerBottomText}>
                       <Text
                           type="textSMALLPARAGRAPH"
                           textType="disabled"
@@ -337,8 +336,7 @@ class DisplayScreen extends React.Component {
                           align="center">
                           All feedback will be reviewed by the team and will be used in future improvements to this app.
                       </Text>
-                  </View>
-              </KeyboardAwareScrollView>
+              </ScrollView>
           </View>
       );
   }
@@ -350,15 +348,12 @@ DisplayScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: Colors.white,
   },
   contentContainer: {
-    flex: 1,
     marginTop: 32,
   },
   smileyContainer: {
-    flex: 1,
     marginTop: 32,
     alignItems: "center",
     justifyContent: 'space-evenly',
@@ -367,16 +362,13 @@ const styles = StyleSheet.create({
     marginTop: 48,
 
     backgroundColor: Colors.white,
-    flex: 3,
   },
   containerButton: {
-    flex: 1,
     justifyContent: 'center',
     width: '100%',
     marginTop: 24,
   },
   containerBottomText: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
