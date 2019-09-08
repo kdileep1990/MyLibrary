@@ -267,21 +267,30 @@ class TextInput extends React.Component {
         this.setState({
             ...this.state,
             focussed: true
-        })
+        });
+        if (this.props.onFocus) {
+            this.props.onFocus();
+        }
     }
 
     textInputBlurred = () => {
         this.setState({
             ...this.state,
             focussed: false
-        })
+        });
+        if (this.props.onBlur) {
+            this.props.onBlur();
+        }
     }
 
     textInputChanged = (changedText) => {
         this.setState({
             ...this.state,
             value: changedText
-        })
+        });
+        if (this.props.onChangeText) {
+            this.props.onChangeText(changedText);
+        }
     }
 
     getMarginLeft = () => {

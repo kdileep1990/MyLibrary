@@ -143,7 +143,7 @@
 //     lineHeight: 19,
 //     textAlign: 'center',
 //   },
-  
+
 //   welcomeContainer: {
 //     alignItems: 'center',
 //     marginTop: 10,
@@ -230,6 +230,7 @@ import {
   StatusBar,
   KeyboardAvoidingView
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Header } from 'react-native-elements';
 import Text from '../components/common/Text/Text';
 import TextInput from '../components/common/TextInput/TextInput'
@@ -241,7 +242,7 @@ import ToggleImages from '../components/common/ToggleImages/ToggleImages';
 class DisplayScreen extends React.Component {
   constructor(props) {
       super(props);
-      this.state = { selectedSmileyValue: '' };
+      this.state = { selectedSmileyValue: '', comments: '' };
   }
   smileyButtonsData = [
 
@@ -257,12 +258,18 @@ class DisplayScreen extends React.Component {
     }
 
   ];
-  updateSmileyValue = (selectedValue) => {
-      this.setState({
-          ...this.state,
-          selectedSmileyValue: selectedValue
-      })
-  };
+    updateSmileyValue = (selectedValue) => {
+        this.setState({
+            ...this.state,
+            selectedSmileyValue: selectedValue
+        })
+    };
+    updateComments = (changedComments) => {
+        this.setState({
+            ...this.state,
+            comments: changedComments
+        })
+    };
   render () {
       return (
           <View style={styles.container}>
@@ -280,7 +287,11 @@ class DisplayScreen extends React.Component {
                   }}
                   placement="left"
               />
-              <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+              <KeyboardAwareScrollView
+                  style={styles.container} contentContainerStyle={styles.contentContainer}
+                  resetScrollToCoords={{ x: 0, y: 0 }}
+                  scrollEnabled={true}
+              >
                   <Text style={{flex: 2, justifyContent: 'space-evenly'}}
                         type="H4"
                         textWeight="weight300"
@@ -302,11 +313,13 @@ class DisplayScreen extends React.Component {
                           multiline={true}
                           numberOfLines={8}
                           paddingSides={16}>
+                          value={this.state.comments}
+                          onChangeText={this.updateComments}
                       </TextInput>
 
                       <Button
                           type="primary"
-                          disabled={this.state.selectedSmileyValue === ''}
+                          disabled={this.state.comments === ''}
                           fullWidth={true}
                           onPress={() => console.log("feedback form")}>
                           Send
@@ -322,7 +335,7 @@ class DisplayScreen extends React.Component {
                           All feedback will be reviewed by the team and will be used in future improvements to this app.
                       </Text>
                   </View>
-              </ScrollView>
+              </KeyboardAwareScrollView>
           </View>
       );
   }
@@ -349,13 +362,13 @@ const styles = StyleSheet.create({
   },
   multilineTextBox: {
     marginTop: 48,
-    
+
     backgroundColor: Colors.white,
     flex: 3,
   },
   containerButton: {
-    flex: 1, 
-    justifyContent: 'center', 
+    flex: 1,
+    justifyContent: 'center',
     width: '100%',
     marginTop: 24,
   },
@@ -379,7 +392,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textAlign: 'center',
   },
-  
+
   welcomeContainer: {
     alignItems: 'center',
     marginTop: 10,

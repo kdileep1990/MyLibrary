@@ -36,7 +36,7 @@ export default class KeyboardShift extends Component {
         UIManager.measure(currentlyFocusedField, (originX, originY, width, height, pageX, pageY) => {
             const fieldHeight = height;
             const fieldTop = pageY;
-            const gap = (windowHeight - keyboardHeight) - (fieldTop + fieldHeight + 20);
+            const gap = (windowHeight - keyboardHeight) - (fieldTop + fieldHeight + 100);
             if (gap >= 0) {
                 return;
             }
@@ -44,7 +44,7 @@ export default class KeyboardShift extends Component {
                 this.state.shift,
                 {
                     toValue: gap,
-                    duration: 100,
+                    duration: 0,
                     useNativeDriver: true,
                 }
             ).start();
@@ -56,7 +56,7 @@ export default class KeyboardShift extends Component {
             this.state.shift,
             {
                 toValue: 0,
-                duration: 100,
+                duration: 0,
                 useNativeDriver: true,
             }
         ).start();
