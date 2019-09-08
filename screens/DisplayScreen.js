@@ -287,10 +287,12 @@ class DisplayScreen extends React.Component {
                   }}
                   placement="left"
               />
-              <ScrollView
+              <KeyboardAwareScrollView
                   style={styles.container} contentContainerStyle={styles.contentContainer}
                   resetScrollToCoords={{ x: 0, y: 0 }}
                   scrollEnabled={true}
+                  keyboardShouldPersistTaps={'always'}
+                  showsVerticalScrollIndicator={false}
               >
                   <Text style={{flex: 2, justifyContent: 'space-evenly'}}
                         type="H4"
@@ -335,7 +337,7 @@ class DisplayScreen extends React.Component {
                           All feedback will be reviewed by the team and will be used in future improvements to this app.
                       </Text>
                   </View>
-              </ScrollView>
+              </KeyboardAwareScrollView>
           </View>
       );
   }
