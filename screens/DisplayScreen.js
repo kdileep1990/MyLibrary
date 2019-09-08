@@ -287,7 +287,7 @@ class DisplayScreen extends React.Component {
                   }}
                   placement="left"
               />
-              <KeyboardAwareScrollView
+              <ScrollView
                   style={styles.container} contentContainerStyle={styles.contentContainer}
                   resetScrollToCoords={{ x: 0, y: 0 }}
                   scrollEnabled={true}
@@ -312,9 +312,9 @@ class DisplayScreen extends React.Component {
                           label="Comments (required)"
                           multiline={true}
                           numberOfLines={8}
-                          paddingSides={16}>
+                          paddingSides={16}
                           value={this.state.comments}
-                          onChangeText={this.updateComments}
+                          onChangeText={this.updateComments}>
                       </TextInput>
 
                       <Button
@@ -335,7 +335,7 @@ class DisplayScreen extends React.Component {
                           All feedback will be reviewed by the team and will be used in future improvements to this app.
                       </Text>
                   </View>
-              </KeyboardAwareScrollView>
+              </ScrollView>
           </View>
       );
   }
