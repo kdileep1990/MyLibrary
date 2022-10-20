@@ -19,7 +19,7 @@
     "@react-navigation/web": "^1.0.0-alpha.9",
     "babel-plugin-react-native-classname-to-style": "^1.2.2",
     "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
-    "expo": "^33.0.0",
+    "expo": "^46.0.16",
     "expo-asset": "^5.0.0",
     "expo-constants": "^5.0.0",
     "expo-font": "^5.0.0",
